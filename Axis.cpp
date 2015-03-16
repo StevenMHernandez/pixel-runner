@@ -1,10 +1,11 @@
 #include "Arduino.h"
 #include "Axis.h"
 
-int _potMax = 90;
+int _potMax = 9;
 
 int location = 0;
 int speed = 0;
+int size;
 int _potPin;
 int _maxSize;
 int _counter = 0;
@@ -36,6 +37,8 @@ void Axis::_updateLocation() {
     location++;
   }
   if(location > _maxSize) {
-    location=0;
+    location = 0;
+  } else if(location <= 0) {
+    location = _maxSize;
   }
 }
